@@ -1,0 +1,900 @@
+:root {
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+    --nav-bg: #2c3e50;
+    --nav-text: white;
+    --card-bg: white;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --form-bg: linear-gradient(135deg, #ffffff, #f1f1f1);
+    --form-border: #e67e22;
+}
+
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f1f1f1;
+    --nav-bg: #121212;
+    --nav-text: #e67e22;
+    --card-bg: #2c2c2c;
+    --shadow: rgba(255, 255, 255, 0.1);
+    --form-bg: linear-gradient(135deg, #2c2c2c, #1f1f1f);
+    --form-border: #e67e22;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header et Navigation */
+header nav {
+    background: var(--nav-bg);
+    color: var(--nav-text);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--nav-text);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links a:hover {
+    color: #e67e22;
+}
+
+.admin-login-link {
+    color: #e67e22;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.admin-login-link:hover {
+    color: #d35400;
+}
+
+.dark-mode-btn {
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.dark-mode-btn:hover {
+    transform: scale(1.2);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Main Content */
+main {
+    margin-top: 80px;
+    padding: 2rem;
+    flex: 1;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/hero-bg.png');
+    background-size: cover;
+    color: white;
+}
+
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow);
+    text-align: center;
+}
+
+/* Menu (menu.php) */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.menu-item {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow);
+    transition: transform 0.3s;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+.menu-item img {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto 1rem auto;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item h3 {
+    color: #e67e22;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item p {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.menu-item .price {
+    display: block;
+    margin: 0.5rem 0;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.add-to-fav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-fav:hover {
+    background: #2980b9;
+}
+
+.add-to-fav i {
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.add-to-fav:hover i {
+    transform: rotate(15deg) scale(1.2);
+}
+
+/* Commentaires dans le menu */
+.comment-form textarea {
+    min-height: 60px;
+    margin-bottom: 0.5rem;
+}
+
+.comment-form select {
+    margin-bottom: 0.5rem;
+}
+
+.comments {
+    margin-top: 1rem;
+}
+
+.comments p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.comments p strong {
+    color: #e67e22;
+}
+
+/* Gestion du menu (manage_menu.php) */
+.menu-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    box-shadow: 0 2px 4px var(--shadow);
+    margin: 2rem 0;
+}
+
+.menu-list th,
+.menu-list td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+    color: var(--text-color);
+}
+
+.menu-list th {
+    background: var(--nav-bg);
+    color: var(--nav-text);
+}
+
+.add-menu-form .form-container {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow);
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.edit-btn {
+    color: #3498db;
+    text-decoration: none;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    transition: color 0.3s;
+}
+
+.edit-btn:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.delete-btn {
+    color: #c0392b;
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: color 0.3s;
+}
+
+.delete-btn:hover {
+    color: #e74c3c;
+    text-decoration: underline;
+}
+
+/* À Propos */
+.about-hero {
+    position: relative;
+    text-align: center;
+    padding: 4rem 2rem 2rem 2rem;
+    background: var(--bg-color);
+}
+
+.about-image-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.about-image-container img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px var(--shadow);
+    position: relative;
+    z-index: 2;
+}
+
+.shape {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+
+.shape-circle {
+    width: 150px;
+    height: 150px;
+    background: #e67e22;
+    border-radius: 50%;
+    top: -50px;
+    left: -50px;
+    transform: rotate(20deg);
+}
+
+.shape-rectangle {
+    width: 200px;
+    height: 100px;
+    background: #3498db;
+    border-radius: 12px;
+    bottom: -30px;
+    right: -60px;
+    transform: rotate(-15deg);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.about-image-container:hover .shape-circle {
+    transform: rotate(30deg) scale(1.1);
+}
+
+.about-image-container:hover .shape-rectangle {
+    transform: rotate(-25deg) scale(1.05);
+}
+
+.about-content {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content-wrapper {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.content-wrapper h2 {
+    color: #e67e22;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.content-wrapper p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+/* Styles des formulaires gamifiés */
+.form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--form-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow);
+    border: 2px solid var(--form-border);
+    animation: formFadeIn 0.5s ease-in-out;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--card-bg);
+    box-shadow: inset 0 2px 4px var(--shadow);
+    color: var(--text-color);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #e67e22;
+    box-shadow: 0 0 8px rgba(230, 126, 34, 0.5);
+    outline: none;
+    transform: scale(1.02);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group input[type="file"] {
+    padding: 0.5rem;
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+.cta-btn,
+.form-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(230, 126, 34, 0.4);
+}
+
+.cta-btn:hover,
+.form-submit-btn:hover {
+    background: #d35400;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(230, 126, 34, 0.6);
+}
+
+.cta-btn:active,
+.form-submit-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(230, 126, 34, 0.3);
+}
+
+.cta-btn i,
+.form-submit-btn i {
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.cta-btn:hover i,
+.form-submit-btn:hover i {
+    transform: rotate(15deg) scale(1.2);
+}
+
+/* Animation d’entrée pour les formulaires */
+@keyframes formFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Barre de progression */
+.progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #e67e22;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+/* Messages de succès ou erreur */
+.success,
+.error {
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.success {
+    background: #27ae60;
+    color: white;
+}
+
+.error {
+    background: #c0392b;
+    color: white;
+}
+
+/* Notifications toast */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    z-index: 2000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.success {
+    background: #27ae60;
+}
+
+.toast.error {
+    background: #c0392b;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Styles spécifiques pour les sections admin */
+.admin-login {
+    max-width: 400px;
+    margin: 5rem auto;
+}
+
+.admin-options {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.admin-btn {
+    padding: 1rem 2rem;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.admin-btn:hover {
+    background: #2980b9;
+}
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow);
+    text-align: center;
+}
+
+.stat-card h3 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    font-size: 2rem;
+    color: #e67e22;
+}
+
+/* Réservations (admin/reservations.php) */
+.reservation-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    box-shadow: 0 2px 4px var(--shadow);
+    margin: 2rem 0;
+}
+
+.reservation-list th,
+.reservation-list td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+    color: var(--text-color);
+}
+
+.reservation-list th {
+    background: var(--nav-bg);
+    color: var(--nav-text);
+}
+
+/* Messages (pages/messages.php) */
+.message-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow);
+    margin-bottom: 1rem;
+}
+
+.message-card p {
+    margin-bottom: 0.5rem;
+}
+
+.message-card strong {
+    color: #e67e22;
+}
+
+.message-card small {
+    color: #888;
+}
+
+/* Messages Admin (admin/messages.php) */
+.message-list textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    resize: vertical;
+}
+
+.message-list .form-submit-btn {
+    width: auto;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.pagination-btn {
+    padding: 0.5rem 1rem;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.pagination-btn:hover {
+    background: #2980b9;
+}
+
+.pagination-btn.active {
+    background: #e67e22;
+    pointer-events: none;
+}
+
+/* Styles pour le mode sombre */
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea,
+body.dark-mode .form-group select {
+    border-color: #555;
+    color: #f1f1f1;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus,
+body.dark-mode .form-group select:focus {
+    border-color: #e67e22;
+}
+
+/* Bouton Retour en haut */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+.scroll-top-btn:hover {
+    background: #d35400;
+    transform: scale(1.1);
+}
+
+.scroll-top-btn i {
+    margin: 0;
+}
+
+/* Footer fixé en bas */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--nav-bg);
+    color: var(--nav-text);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Media Queries pour mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--nav-bg);
+        padding: 1rem;
+        box-shadow: 0 2px 4px var(--shadow);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
+    .about-image-container {
+        max-width: 100%;
+    }
+
+    .shape-circle {
+        width: 100px;
+        height: 100px;
+        top: -30px;
+        left: -30px;
+    }
+
+    .shape-rectangle {
+        width: 150px;
+        height: 80px;
+        bottom: -20px;
+        right: -40px;
+    }
+
+    .content-wrapper {
+        padding: 1.5rem;
+    }
+}
+
+/* Grille des messages */
+.message-list .message-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.message-list .message-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.message-list .message-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.message-list .field-label {
+    font-weight: bold;
+    color: #e67e22;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.message-list .message-field p {
+    margin: 0;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.message-list .message-field small {
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.message-list .message-field textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    resize: vertical;
+}
+
+.message-list .message-field .form-submit-btn {
+    width: auto;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .message-list .message-grid {
+        grid-template-columns: 1fr;
+    }
+}
