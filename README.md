@@ -33,7 +33,7 @@ Une plateforme web culinaire qui invite à un voyage gustatif à travers les cui
 1. Clone ou télécharge le projet :
 
    ```bash
-   git clone <url-du-projet>
+   git clone https://github.com/SaniAdamou14/Saveur-du-Monde.git
    ```
 
 2. Accède au répertoire :
